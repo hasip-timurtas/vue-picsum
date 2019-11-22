@@ -1,37 +1,26 @@
 <template>
   <div id="app">
-    <div class="row">
-      <input v-model.number="num1" type="number" />
-      <span>+</span>
-      <input v-model.number="num2" type="number" />
-      <span>=</span>
-      <span>{{num1 + num2}}</span>
+    <header>
+      <h1>Header</h1>
+    </header>
+    <div class="main">
+      <h1>Main</h1>
     </div>
-    <div class="row second">
-      <select v-model="name">
-        <option>Carne Asada</option>
-        <option>Pollo</option>
-        <option>Bean</option>
-        <option>Al Pastor</option>
-      </select>
-      <p v-if="name">My Favorite kind of taco is {{name}}</p>
-    </div>
+    <footer>
+      <h2>Footer</h2>
+    </footer>
   </div>
 </template>
 
 <script>
-export default {
-  el: "#app",
-  name: "ImagesListMain",
-  props: {
-    msg: String
-  },
-  data() {
-    return {
-      num1: 0,
-      num2: 0,
-      name: ""
-    };
-  }
-};
+export default {};
 </script>
+
+<style>
+#app {
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
+}
+</style>
