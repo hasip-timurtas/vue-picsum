@@ -1,15 +1,14 @@
 <template>
   <div id="app">
     <header>
-      Vue Picsum
+      <img class="logo" src="../assets/logo.png" alt="" />ue Picsum
     </header>
     <div class="main">
       <ImageList />
     </div>
     <footer>
-      <h5>
-        Vue test project for front-end feveloper jop position at Videoslots Ltd.
-      </h5>
+      Vue test project by <strong> Hasip Timurtaş </strong> for front-end
+      feveloper jop position at Videoslots Ltd.
     </footer>
   </div>
 </template>
@@ -36,6 +35,7 @@ li {
   float: left;
 }
 #app {
+  text-align: center;
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -44,11 +44,19 @@ li {
 
 header {
   width: 100%;
-  height: 50px;
+  height: 100px;
   background-color: #2c3e50;
   color: white;
   text-align: center;
-  font-size: 30px;
+  font-size: 2.9rem;
+}
+
+header .logo {
+  width: 100px;
+}
+
+.main {
+  margin-top: 50px;
 }
 
 footer {
@@ -56,7 +64,7 @@ footer {
   height: 50px;
   background-color: #2c3e50;
   color: white;
-
   text-align: center;
+  padding-top: 25px;
 }
 </style>
