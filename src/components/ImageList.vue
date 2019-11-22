@@ -74,7 +74,7 @@ export default {
       axios
         .get(url)
         .then((res) => {
-          this.lastPage = res.data.length == 0;
+          this.lastPage = res.data.length < this.perPage;
           this.images = res.data;
         })
         .catch((e) => {
@@ -141,6 +141,6 @@ nav {
   color: #2c3e50;
   font-weight: 500;
   display: inline-block;
-  background-color: white;
+  background-color: #ffffff;
 }
 </style>

@@ -46,7 +46,7 @@ header {
   width: 100%;
   height: 100px;
   background-color: #2c3e50;
-  color: white;
+  color: #ffffff;
   text-align: center;
   font-size: 2.9rem;
 }
@@ -63,7 +63,7 @@ footer {
   width: 100%;
   height: 50px;
   background-color: #2c3e50;
-  color: white;
+  color: #ffffff;
   text-align: center;
   padding-top: 25px;
 }
