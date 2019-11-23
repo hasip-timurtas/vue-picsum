@@ -8,7 +8,7 @@
     </div>
     <footer>
       Vue test project by
-      <strong>Hasip Timurtaş</strong> for front-end
+      <strong>M. Hasip Timurtaş</strong> for front-end
       feveloper jop position at Videoslots Ltd.
     </footer>
   </div>

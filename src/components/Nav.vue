@@ -2,17 +2,22 @@
   <nav>
     <ul class="pagination">
       <li>
-        <button type="button" class="button" v-if="page != 1" @click="decreasePage">Prev</button>
+        <button class="button light__color" v-if="page != 1" @click="decreasePage">Prev</button>
       </li>
       <li>
-        <button type="button" class="middle__button" disabled>{{ page }}</button>
+        <button class="button dark__color" disabled>{{ page }}</button>
       </li>
       <li>
-        <button type="button" v-if="!lastPage" @click="increasePage" class="button">Next</button>
+        <button v-if="!lastPage" @click="increasePage" class="button light__color">Next</button>
       </li>
     </ul>
     <label for="select-per-page">Images Per Page:</label>
-    <select id="select-per-page" class="button" @change="onPerPageChange" v-model="perPage">
+    <select
+      id="select-per-page"
+      class="button light__color"
+      @change="onPerPageChange"
+      v-model="perPage"
+    >
       <option value="30">30</option>
       <option value="50">50</option>
       <option value="75">75</option>
@@ -57,21 +62,15 @@ nav {
   height: 50px;
   width: 500px;
 }
-
-.middle__button {
+.dark__color {
   background-color: #2c3e50;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 13px;
-  cursor: pointer;
+}
+
+.light__color {
+  background-color: #41b883;
 }
 
 .button {
-  background-color: #41b883;
   border: none;
   color: white;
   padding: 15px 15px;
