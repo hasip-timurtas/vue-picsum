@@ -9,9 +9,13 @@
     />
     <div class="row">
       <div class="col" v-for="p in images" :key="p.id">
-        <a :href="p.url" target="_blank">
-          <img :src="'https://picsum.photos/id/' + p.id + '/367/267'" alt="" />
-        </a>
+        <img
+          :url="p.url"
+          :src="'https://picsum.photos/id/' + p.id + '/367/267'"
+          alt=""
+          @click="onImageClick"
+        />
+
         <div class="container">
           <h4>
             <b>{{ p.author }}</b>
@@ -27,6 +31,14 @@
       @updatePage="updatePage"
       @onPerpageChange="onPerpageChange"
     />
+    <modal name="picsum-modal" width="80%" height="80%">
+      <iframe
+        name="picsum-frame"
+        :src="selectedImageUrl"
+        width="100%"
+        height="100%"
+      />
+    </modal>
   </div>
 </template>
 <script>
@@ -40,6 +52,7 @@ export default {
   data() {
     return {
       images: [""],
+      selectedImageUrl: "",
       page: 1,
       perPage: 30,
       pages: [],
@@ -62,6 +75,13 @@ export default {
           // eslint-disable-next-line no-console
           console.log(e);
         });
+    },
+    onImageClick(event) {
+      const element = event.currentTarget;
+      const url = element.getAttribute("url");
+      const byPassFrameUrl = "https://jsonp.afeld.me/?url=";
+      this.selectedImageUrl = byPassFrameUrl + url;
+      this.$modal.show("picsum-modal");
     },
     setPages() {
       let numberOfPages = 10;
@@ -92,6 +112,14 @@ export default {
     },
     perPage() {
       this.getImages();
+    },
+    selectedImageUrl() {
+      // eslint-disable-next-line no-console
+      console.log(this.selectedImageUrl);
+      if (!this.selectedImageUrl.includes("jsonp.afeld.me")) {
+        const byPassFrameUrl = "https://jsonp.afeld.me/?url=";
+        this.selectedImageUrl = byPassFrameUrl + this.selectedImageUrl;
+      }
     }
   }
 };
@@ -108,6 +136,7 @@ export default {
   margin: 5px;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 .col img {
