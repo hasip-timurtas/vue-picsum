@@ -2,32 +2,15 @@
   <nav>
     <ul class="pagination">
       <li class="page__item">
-        <button
-          type="button"
-          class="page__link"
-          v-if="page != 1"
-          @click="decreasePage"
-        >
-          Previous
-        </button>
+        <button type="button" class="page__link" v-if="page != 1" @click="decreasePage">Prev</button>
       </li>
       <li class="page__item">
-        <button type="button" class="page__link">
-          {{ page }}
-        </button>
+        <button type="button" class="page__link">{{ page }}</button>
       </li>
       <li class="page__item">
-        <button
-          type="button"
-          v-if="!lastPage"
-          @click="increasePage"
-          class="page__link"
-        >
-          Next
-        </button>
+        <button type="button" v-if="!lastPage" @click="increasePage" class="page__link">Next</button>
       </li>
-    </ul>
-    Images Per Page:
+    </ul>Images Per Page:
     <select class="page__link" @change="onPerpageChange" v-model="perPage">
       <option value="30">30</option>
       <option value="50">50</option>

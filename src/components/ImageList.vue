@@ -71,13 +71,6 @@ export default {
         this.pages.push(index);
       }
     },
-    paginate(images) {
-      let page = this.page;
-      let perPage = this.perPage;
-      let from = page * perPage - perPage;
-      let to = page * perPage;
-      return images.slice(from, to);
-    },
     onPerpageChange(event) {
       this.perPage = event.target.value;
     },
