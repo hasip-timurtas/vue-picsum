@@ -1,7 +1,11 @@
 <template>
   <div>
-    <label for="filter">Filter by author</label>
-    <input id="filter" type="text" v-model="filterText" />
+    <input
+      class="filterbar"
+      type="text"
+      v-model="filterText"
+      placeholder="Filter by Author"
+    />
     <Nav
       :page="page"
       :lastPage="lastPage"
@@ -34,12 +38,7 @@
       @onPerpageChange="onPerpageChange"
     />
     <modal name="picsum-modal" width="80%" height="80%">
-      <iframe
-        name="picsum-frame"
-        :src="selectedImageUrl"
-        width="100%"
-        height="100%"
-      />
+      <iframe :src="selectedImageUrl" width="100%" height="100%" />
     </modal>
   </div>
 </template>
@@ -130,6 +129,14 @@ export default {
 </script>
 
 <style scoped>
+.filterbar {
+  width: 40%;
+  height: 50px;
+  font-size: 1.5rem;
+  border: 2px solid #41b883;
+  border-radius: 25px;
+  padding: 5px;
+}
 .row {
   display: flex;
   flex-wrap: wrap;

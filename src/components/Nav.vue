@@ -69,6 +69,7 @@ export default {
 
 <style scoped>
 nav {
+  margin-top: 50px;
   height: 50px;
   width: 450px;
 }
