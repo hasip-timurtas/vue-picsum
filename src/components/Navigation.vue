@@ -5,7 +5,9 @@
         <button class="button light__color" v-if="page != 1" @click="decreasePage">Prev</button>
       </li>
       <li>
-        <button class="button dark__color" disabled>{{ page }}</button>
+        <button class="button dark__color" disabled>
+          <slot></slot>
+        </button>
       </li>
       <li>
         <button v-if="!lastPage" @click="increasePage" class="button light__color">Next</button>
@@ -30,11 +32,6 @@
 export default {
   name: "Navigation",
   props: {
-    page: {
-      type: Number,
-      required: true,
-      default: 1
-    },
     lastPage: {
       type: Boolean,
       required: true,
@@ -48,7 +45,7 @@ export default {
   },
   data() {
     return {
-      childPage: this.page
+      childPage: 0
     };
   },
   methods: {

@@ -2,12 +2,11 @@
   <div>
     <input class="filterbar" type="text" v-model="filterText" placeholder="Filter by Author" />
     <Navigation
-      :page="page"
       :lastPage="lastPage"
       :perPage="perPage"
       @updatePage="updatePage"
       @onPerPageChange="onPerPageChange"
-    />
+    >{{page}}</Navigation>
     <div class="row">
       <image-item
         v-for="picsumImage in filteredImages"
@@ -17,12 +16,11 @@
       />
     </div>
     <Navigation
-      :page="page"
       :lastPage="lastPage"
       :perPage="perPage"
       @updatePage="updatePage"
       @onPerPageChange="onPerPageChange"
-    />
+    >{{page}}</Navigation>
     <modal name="picsum-modal" width="80%" height="80%">
       <iframe :src="selectedImageUrl" width="100%" height="100%" />
     </modal>
