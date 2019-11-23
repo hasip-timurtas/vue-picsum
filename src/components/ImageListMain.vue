@@ -3,9 +3,9 @@
     <header>
       <img class="logo" src="../assets/logo.png" alt="Vue Picsum logo" />ue Picsum
     </header>
-    <div class="main">
+    <main>
       <image-list />
-    </div>
+    </main>
     <footer>
       Vue test project by
       <strong>M. Hasip Timurtaş</strong> for front-end
@@ -33,13 +33,7 @@ body {
   padding: 0;
   margin: 0;
 }
-li {
-  list-style-type: none;
-  float: left;
-}
-::placeholder {
-  color: #b7dacb;
-}
+
 #app {
   text-align: center;
   font-family: "Avenir", Helvetica, Arial, sans-serif;
@@ -58,7 +52,7 @@ header {
 header .logo {
   width: 100px;
 }
-.main {
+main {
   width: 95%;
   margin: 50px auto 0 auto;
 }
@@ -69,5 +63,13 @@ footer {
   color: #ffffff;
   text-align: center;
   padding-top: 25px;
+}
+
+li {
+  list-style-type: none;
+  float: left;
+}
+::placeholder {
+  color: #b7dacb;
 }
 </style>
