@@ -37,6 +37,9 @@ li {
   list-style-type: none;
   float: left;
 }
+::placeholder {
+  color: #b7dacb;
+}
 #app {
   text-align: center;
   font-family: "Avenir", Helvetica, Arial, sans-serif;

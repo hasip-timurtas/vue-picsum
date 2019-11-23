@@ -96,9 +96,10 @@ export default {
   width: 40%;
   height: 50px;
   font-size: 1.5rem;
-  border: 2px solid #41b883;
+  border: 2px solid #bde8d5;
   border-radius: 25px;
   padding-left: 15px;
+  color: grey;
 }
 .row {
   display: flex;
