@@ -1,17 +1,18 @@
 <template>
   <nav>
     <ul class="pagination">
-      <li class="page__item">
-        <button type="button" class="page__link" v-if="page != 1" @click="decreasePage">Prev</button>
+      <li>
+        <button type="button" class="button" v-if="page != 1" @click="decreasePage">Prev</button>
       </li>
-      <li class="page__item">
-        <button type="button" class="page__link">{{ page }}</button>
+      <li>
+        <button type="button" class="middle__button" disabled>{{ page }}</button>
       </li>
-      <li class="page__item">
-        <button type="button" v-if="!lastPage" @click="increasePage" class="page__link">Next</button>
+      <li>
+        <button type="button" v-if="!lastPage" @click="increasePage" class="button">Next</button>
       </li>
-    </ul>Images Per Page:
-    <select class="page__link" @change="onPerPageChange" v-model="perPage">
+    </ul>
+    <label for="select-per-page">Images Per Page:</label>
+    <select id="select-per-page" class="button" @change="onPerPageChange" v-model="perPage">
       <option value="30">30</option>
       <option value="50">50</option>
       <option value="75">75</option>
@@ -52,16 +53,32 @@ export default {
 
 <style lang="scss" scoped>
 nav {
-  margin-top: 50px;
+  margin: 50px 0 25px 0;
   height: 50px;
-  width: 450px;
+  width: 500px;
 }
 
-.page__link {
-  font-size: 20px;
-  color: #2c3e50;
-  font-weight: 500;
+.middle__button {
+  background-color: #2c3e50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
   display: inline-block;
-  background-color: #ffffff;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.button {
+  background-color: #41b883;
+  border: none;
+  color: white;
+  padding: 15px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 13px;
+  cursor: pointer;
 }
 </style>

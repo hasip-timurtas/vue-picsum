@@ -59,7 +59,8 @@ header .logo {
 }
 
 .main {
-  margin-top: 50px;
+  width: 95%;
+  margin: 50px auto 0 auto;
 }
 
 footer {
