@@ -1,6 +1,6 @@
 <template>
-  <nav>
-    <ul class="pagination">
+  <nav class="pagination">
+    <ul>
       <li>
         <button class="button light__color" v-if="page != 1" @click="decreasePage">Prev</button>
       </li>
@@ -73,7 +73,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-nav {
+.pagination {
   margin: 50px 0 25px 0;
   height: 50px;
   width: 500px;
