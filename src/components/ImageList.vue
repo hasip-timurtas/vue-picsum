@@ -6,7 +6,7 @@
       :lastPage="lastPage"
       :perPage="perPage"
       @updatePage="updatePage"
-      @onPerpageChange="onPerpageChange"
+      @onPerPageChange="onPerPageChange"
     />
     <div class="row">
       <SingleImage v-for="p in filteredImages" :key="p.id" :p="p" @showModal="showModal" />
@@ -16,7 +16,7 @@
       :lastPage="lastPage"
       :perPage="perPage"
       @updatePage="updatePage"
-      @onPerpageChange="onPerpageChange"
+      @onPerPageChange="onPerPageChange"
     />
     <modal name="picsum-modal" width="80%" height="80%">
       <iframe :src="selectedImageUrl" width="100%" height="100%" />
@@ -39,7 +39,6 @@ export default {
       selectedImageUrl: "",
       page: 1,
       perPage: 30,
-      pages: [],
       lastPage: false,
       filterText: ""
     };
@@ -65,13 +64,7 @@ export default {
       this.selectedImageUrl = url;
       this.$modal.show("picsum-modal");
     },
-    setPages() {
-      let numberOfPages = 10;
-      for (let index = 1; index <= numberOfPages; index++) {
-        this.pages.push(index);
-      }
-    },
-    onPerpageChange(event) {
+    onPerPageChange(event) {
       this.perPage = event.target.value;
     },
     updatePage(page) {
@@ -79,9 +72,6 @@ export default {
     }
   },
   watch: {
-    images() {
-      this.setPages();
-    },
     page() {
       this.getImages();
     },
@@ -108,7 +98,7 @@ export default {
   font-size: 1.5rem;
   border: 2px solid #41b883;
   border-radius: 25px;
-  padding: 5px;
+  padding-left: 15px;
 }
 .row {
   display: flex;

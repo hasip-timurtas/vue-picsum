@@ -11,7 +11,7 @@
         <button type="button" v-if="!lastPage" @click="increasePage" class="page__link">Next</button>
       </li>
     </ul>Images Per Page:
-    <select class="page__link" @change="onPerpageChange" v-model="perPage">
+    <select class="page__link" @change="onPerPageChange" v-model="perPage">
       <option value="30">30</option>
       <option value="50">50</option>
       <option value="75">75</option>
@@ -38,8 +38,8 @@ export default {
       this.childPage--;
       this.$emit("updatePage", this.childPage);
     },
-    onPerpageChange(event) {
-      this.$emit("onPerpageChange", event);
+    onPerPageChange(event) {
+      this.$emit("onPerPageChange", event);
     }
   },
   watch: {

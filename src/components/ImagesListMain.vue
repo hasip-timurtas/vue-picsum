@@ -1,13 +1,14 @@
 <template>
   <div id="app">
     <header>
-      <img class="logo" src="../assets/logo.png" alt="" />ue Picsum
+      <img class="logo" src="../assets/logo.png" alt="Vue Picsum logo" />ue Picsum
     </header>
     <div class="main">
       <ImageList />
     </div>
     <footer>
-      Vue test project by <strong> Hasip Timurtaş </strong> for front-end
+      Vue test project by
+      <strong>Hasip Timurtaş</strong> for front-end
       feveloper jop position at Videoslots Ltd.
     </footer>
   </div>
