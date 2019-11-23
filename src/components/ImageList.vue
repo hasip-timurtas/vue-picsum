@@ -77,8 +77,8 @@ export default {
         });
     },
     onImageClick(event) {
-      const element = event.currentTarget;
-      const url = element.getAttribute("url");
+      const imgElement = event.currentTarget;
+      const url = imgElement.getAttribute("url");
       const byPassFrameUrl = "https://jsonp.afeld.me/?url=";
       this.selectedImageUrl = byPassFrameUrl + url;
       this.$modal.show("picsum-modal");
@@ -112,14 +112,6 @@ export default {
     },
     perPage() {
       this.getImages();
-    },
-    selectedImageUrl() {
-      // eslint-disable-next-line no-console
-      console.log(this.selectedImageUrl);
-      if (!this.selectedImageUrl.includes("jsonp.afeld.me")) {
-        const byPassFrameUrl = "https://jsonp.afeld.me/?url=";
-        this.selectedImageUrl = byPassFrameUrl + this.selectedImageUrl;
-      }
     }
   }
 };
@@ -136,11 +128,11 @@ export default {
   margin: 5px;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
 }
 
 .col img {
   width: 367px;
   height: 267px;
+  cursor: pointer;
 }
 </style>
