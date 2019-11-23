@@ -30,7 +30,7 @@ export default {
       const picsumUrl = imgElement.getAttribute("url");
       const byPassFrameUrl = "https://jsonp.afeld.me/?url=";
       const url = byPassFrameUrl + picsumUrl;
-      this.$emit("showModal", url);
+      this.$emit("show-modal", url);
     }
   }
 };

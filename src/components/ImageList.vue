@@ -2,25 +2,27 @@
   <div>
     <input class="filterbar" type="text" v-model="filterText" placeholder="Filter by Author" />
     <Navigation
+      :currentPage="currentPage"
       :lastPage="lastPage"
       :perPage="perPage"
-      @updatePage="updatePage"
-      @onPerPageChange="onPerPageChange"
-    >{{page}}</Navigation>
+      @update-current-page="updatePage"
+      @update-per-page="onPerPageChange"
+    />
     <div class="row">
       <image-item
         v-for="picsumImage in filteredImages"
         :key="picsumImage.id"
         :picsumImage="picsumImage"
-        @showModal="showModal"
+        @show-modal="showModal"
       />
     </div>
     <Navigation
+      :currentPage="currentPage"
       :lastPage="lastPage"
       :perPage="perPage"
-      @updatePage="updatePage"
-      @onPerPageChange="onPerPageChange"
-    >{{page}}</Navigation>
+      @update-current-page="updatePage"
+      @update-per-page="onPerPageChange"
+    />
     <modal name="picsum-modal" width="80%" height="80%">
       <iframe :src="selectedImageUrl" width="100%" height="100%" />
     </modal>
@@ -40,18 +42,15 @@ export default {
     return {
       images: [""],
       selectedImageUrl: "",
-      page: 1,
-      perPage: 30,
+      currentPage: 1,
+      perPage: "30",
       lastPage: false,
       filterText: ""
     };
   },
-  created() {
-    this.getImages();
-  },
   methods: {
     getImages() {
-      const url = `https://picsum.photos/v2/list?page=${this.page}&limit=${this.perPage}`;
+      const url = `https://picsum.photos/v2/list?page=${this.currentPage}&limit=${this.perPage}`;
       axios
         .get(url)
         .then(res => {
@@ -71,12 +70,15 @@ export default {
       this.perPage = event.target.value;
     },
     updatePage(page) {
-      this.page = page;
+      this.currentPage = page;
     }
   },
   watch: {
-    page() {
-      this.getImages();
+    currentPage: {
+      immediate: true,
+      handler() {
+        this.getImages();
+      }
     },
     perPage() {
       this.getImages();

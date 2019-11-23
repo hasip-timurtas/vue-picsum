@@ -2,12 +2,10 @@
   <nav class="pagination">
     <ul>
       <li>
-        <button class="button light__color" v-if="page != 1" @click="decreasePage">Prev</button>
+        <button class="button light__color" v-if="currentPage != 1" @click="decreasePage">Prev</button>
       </li>
       <li>
-        <button class="button dark__color" disabled>
-          <slot></slot>
-        </button>
+        <button class="button dark__color" disabled>{{ currentPage }}</button>
       </li>
       <li>
         <button v-if="!lastPage" @click="increasePage" class="button light__color">Next</button>
@@ -17,8 +15,8 @@
     <select
       id="select-per-page"
       class="button light__color"
+      v-model="childPerPage"
       @change="onPerPageChange"
-      v-model="perPage"
     >
       <option value="30">30</option>
       <option value="50">50</option>
@@ -32,38 +30,47 @@
 export default {
   name: "Navigation",
   props: {
+    currentPage: {
+      type: Number,
+      required: true,
+      default: 1
+    },
     lastPage: {
       type: Boolean,
       required: true,
       default: false
     },
     perPage: {
-      type: Number,
+      type: String,
       required: true,
-      default: 30
+      default: "30"
     }
   },
   data() {
     return {
-      childPage: 0
+      childCurrentPage: 1,
+      childPerPage: "30"
     };
   },
   methods: {
     increasePage: function() {
-      this.childPage++;
-      this.$emit("updatePage", this.childPage);
+      this.childCurrentPage++;
+      this.$emit("update-current-page", this.childCurrentPage);
     },
     decreasePage: function() {
-      this.childPage--;
-      this.$emit("updatePage", this.childPage);
+      this.childCurrentPage--;
+      this.$emit("update-current-page", this.childCurrentPage);
     },
     onPerPageChange(event) {
-      this.$emit("onPerPageChange", event);
+      this.$emit("update-per-page", event);
     }
   },
   watch: {
-    page() {
-      this.childPage = this.page;
+    currentPage() {
+      this.childPage = this.childCurrentPage;
+    },
+    perPage() {
+      this.childPerPage = this.perPage;
     }
   }
 };
