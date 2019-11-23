@@ -1,5 +1,7 @@
 <template>
   <div>
+    <label for="filter">Filter by author</label>
+    <input id="filter" type="text" v-model="filterText" />
     <Nav
       :page="page"
       :lastPage="lastPage"
@@ -8,7 +10,7 @@
       @onPerpageChange="onPerpageChange"
     />
     <div class="row">
-      <div class="col" v-for="p in images" :key="p.id">
+      <div class="col" v-for="p in filteredImages" :key="p.id">
         <img
           :url="p.url"
           :src="'https://picsum.photos/id/' + p.id + '/367/267'"
@@ -56,7 +58,8 @@ export default {
       page: 1,
       perPage: 30,
       pages: [],
-      lastPage: false
+      lastPage: false,
+      filterText: ""
     };
   },
   created() {
@@ -112,6 +115,15 @@ export default {
     },
     perPage() {
       this.getImages();
+    }
+  },
+  computed: {
+    filteredImages() {
+      return this.images.filter(
+        (image) =>
+          image.author &&
+          image.author.toLowerCase().includes(this.filterText.toLowerCase())
+      );
     }
   }
 };
