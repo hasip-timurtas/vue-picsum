@@ -1,7 +1,7 @@
 <template>
   <div>
     <input class="filterbar" type="text" v-model="filterText" placeholder="Filter by Author" />
-    <Nav
+    <Navigation
       :page="page"
       :lastPage="lastPage"
       :perPage="perPage"
@@ -9,9 +9,14 @@
       @onPerPageChange="onPerPageChange"
     />
     <div class="row">
-      <SingleImage v-for="p in filteredImages" :key="p.id" :p="p" @showModal="showModal" />
+      <image-item
+        v-for="picsumImage in filteredImages"
+        :key="picsumImage.id"
+        :picsumImage="picsumImage"
+        @showModal="showModal"
+      />
     </div>
-    <Nav
+    <Navigation
       :page="page"
       :lastPage="lastPage"
       :perPage="perPage"
@@ -25,13 +30,13 @@
 </template>
 <script>
 import axios from "axios";
-import Nav from "./Nav.vue";
-import SingleImage from "./SingleImage";
+import Navigation from "./Navigation.vue";
+import ImageItem from "./ImageItem";
 export default {
   name: "ImageList",
   components: {
-    Nav,
-    SingleImage
+    Navigation,
+    "image-item": ImageItem
   },
   data() {
     return {

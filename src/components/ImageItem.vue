@@ -1,16 +1,16 @@
 <template>
   <div class="col">
     <img
-      :url="p.url"
-      :src="'https://picsum.photos/id/' + p.id + '/367/267'"
+      :url="picsumImage.url"
+      :src="'https://picsum.photos/id/' + picsumImage.id + '/367/267'"
       alt
       @click="onImageClick"
     />
     <div class="container">
       <h4>
-        <b>{{ p.author }}</b>
+        <b>{{ picsumImage.author }}</b>
       </h4>
-      <p>#{{ p.id }}</p>
+      <p>#{{ picsumImage.id }}</p>
     </div>
   </div>
 </template>
@@ -18,7 +18,9 @@
 <script>
 export default {
   name: "SingleImage",
-  props: ["p"],
+  props: {
+    picsumImage: { type: Object, required: true }
+  },
   methods: {
     onImageClick(event) {
       const imgElement = event.currentTarget;

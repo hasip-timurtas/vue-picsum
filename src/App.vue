@@ -1,14 +1,14 @@
 <template>
-  <ImagesListMain />
+  <image-list-main />
 </template>
 
 <script>
-import ImagesListMain from "./components/ImagesListMain.vue";
+import ImageListMain from "./components/ImageListMain.vue";
 
 export default {
   name: "app",
   components: {
-    ImagesListMain
+    "image-list-main": ImageListMain
   }
 };
 </script>

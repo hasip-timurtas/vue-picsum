@@ -28,8 +28,13 @@
 
 <script>
 export default {
-  name: "Nav",
-  props: ["page", "lastPage", "perPage"],
+  name: "Navigation",
+  props: {
+    page: { type: Number, required: true },
+    lastPage: { type: Number, required: true },
+    perPage: { type: Number, required: true }
+  },
+
   data() {
     return {
       childPage: 1

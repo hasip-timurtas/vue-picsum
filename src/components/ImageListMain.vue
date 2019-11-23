@@ -4,7 +4,7 @@
       <img class="logo" src="../assets/logo.png" alt="Vue Picsum logo" />ue Picsum
     </header>
     <div class="main">
-      <ImageList />
+      <image-list />
     </div>
     <footer>
       Vue test project by
@@ -20,7 +20,7 @@ import ImageList from "./ImageList.vue";
 export default {
   name: "ImagesListMain",
   components: {
-    ImageList
+    "image-list": ImageList
   }
 };
 </script>
