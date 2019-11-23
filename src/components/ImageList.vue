@@ -128,7 +128,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .filterbar {
   width: 40%;
   height: 50px;

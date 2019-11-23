@@ -24,7 +24,9 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+$mainColor: #2c3e50;
+
 html,
 body {
   padding: 0;
@@ -39,13 +41,13 @@ li {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
+  color: $mainColor;
 }
 
 header {
   width: 100%;
   height: 100px;
-  background-color: #2c3e50;
+  background-color: $mainColor;
   color: #41b883;
   text-align: center;
   font-size: 2.9rem;
@@ -62,7 +64,7 @@ header .logo {
 footer {
   width: 100%;
   height: 50px;
-  background-color: #2c3e50;
+  background-color: $mainColor;
   color: #ffffff;
   text-align: center;
   padding-top: 25px;
