@@ -1,4 +1,4 @@
-# ![Alt text](src/assets/logo.png =100x "Title") ue Picsum
+# ![Alt text](src/assets/logo.png?raw=true "Title") ue Picsum
 
 Vue test project
 
