@@ -1,42 +1,12 @@
 <template>
   <div>
-    <nav>
-      <ul class="pagination">
-        <li class="page__item">
-          <button
-            type="button"
-            class="page__link"
-            v-if="page != 1"
-            @click="page--"
-          >
-            Previous
-          </button>
-        </li>
-        <li class="page__item">
-          <button type="button" class="page__link" @click="page">
-            {{ page }}
-          </button>
-        </li>
-        <li class="page__item">
-          <button
-            type="button"
-            v-if="!lastPage"
-            @click="page++"
-            class="page__link"
-          >
-            Next
-          </button>
-        </li>
-      </ul>
-      Images Per Page:
-      <select class="page__link" @change="onPerpageChange">
-        <option value="30">30</option>
-        <option value="50">50</option>
-        <option value="75">75</option>
-        <option value="100">100</option>
-      </select>
-    </nav>
-
+    <Nav
+      :page="page"
+      :lastPage="lastPage"
+      :perPage="perPage"
+      @updatePage="updatePage"
+      @onPerpageChange="onPerpageChange"
+    />
     <div class="row">
       <div class="col" v-for="p in images" :key="p.id">
         <a :href="p.url" target="_blank">
@@ -50,12 +20,23 @@
         </div>
       </div>
     </div>
+    <Nav
+      :page="page"
+      :lastPage="lastPage"
+      :perPage="perPage"
+      @updatePage="updatePage"
+      @onPerpageChange="onPerpageChange"
+    />
   </div>
 </template>
 <script>
 import axios from "axios";
+import Nav from "./Nav.vue";
 export default {
   name: "ImageList",
+  components: {
+    Nav
+  },
   data() {
     return {
       images: [""],
@@ -97,6 +78,9 @@ export default {
     },
     onPerpageChange(event) {
       this.perPage = event.target.value;
+    },
+    updatePage(page) {
+      this.page = page;
     }
   },
   watch: {
@@ -129,18 +113,5 @@ export default {
 .col img {
   width: 367px;
   height: 267px;
-}
-
-nav {
-  height: 50px;
-  width: 450px;
-}
-
-.page__link {
-  font-size: 20px;
-  color: #2c3e50;
-  font-weight: 500;
-  display: inline-block;
-  background-color: #ffffff;
 }
 </style>
