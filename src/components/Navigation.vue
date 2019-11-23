@@ -32,15 +32,18 @@ export default {
   props: {
     page: {
       type: Number,
-      required: true
+      required: true,
+      default: 1
     },
     lastPage: {
       type: Boolean,
-      required: true
+      required: true,
+      default: false
     },
     perPage: {
       type: Number,
-      required: true
+      required: true,
+      default: 30
     }
   },
   data() {

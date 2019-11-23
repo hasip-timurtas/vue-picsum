@@ -19,7 +19,10 @@
 export default {
   name: "SingleImage",
   props: {
-    picsumImage: { type: Object, required: true }
+    picsumImage: {
+      type: Object,
+      required: true
+    }
   },
   methods: {
     onImageClick(event) {
