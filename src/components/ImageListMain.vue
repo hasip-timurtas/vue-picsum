@@ -47,7 +47,6 @@ li {
   -moz-osx-font-smoothing: grayscale;
   color: $mainColor;
 }
-
 header {
   width: 100%;
   height: 100px;
@@ -56,16 +55,13 @@ header {
   text-align: center;
   font-size: 2.9rem;
 }
-
 header .logo {
   width: 100px;
 }
-
 .main {
   width: 95%;
   margin: 50px auto 0 auto;
 }
-
 footer {
   width: 100%;
   height: 50px;

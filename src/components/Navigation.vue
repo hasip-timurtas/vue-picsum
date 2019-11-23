@@ -30,14 +30,22 @@
 export default {
   name: "Navigation",
   props: {
-    page: { type: Number, required: true },
-    lastPage: { type: Number, required: true },
-    perPage: { type: Number, required: true }
+    page: {
+      type: Number,
+      required: true
+    },
+    lastPage: {
+      type: Boolean,
+      required: true
+    },
+    perPage: {
+      type: Number,
+      required: true
+    }
   },
-
   data() {
     return {
-      childPage: 1
+      childPage: this.page
     };
   },
   methods: {
@@ -70,11 +78,9 @@ nav {
 .dark__color {
   background-color: #2c3e50;
 }
-
 .light__color {
   background-color: #41b883;
 }
-
 .button {
   border: none;
   color: white;

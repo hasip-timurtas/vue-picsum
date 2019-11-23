@@ -40,7 +40,6 @@ export default {
   align-items: center;
   justify-content: center;
 }
-
 .col img {
   width: 367px;
   height: 267px;
