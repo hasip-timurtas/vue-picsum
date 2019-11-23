@@ -1,11 +1,6 @@
 <template>
   <div>
-    <input
-      class="filterbar"
-      type="text"
-      v-model="filterText"
-      placeholder="Filter by Author"
-    />
+    <input class="filterbar" type="text" v-model="filterText" placeholder="Filter by Author" />
     <Nav
       :page="page"
       :lastPage="lastPage"
@@ -14,21 +9,7 @@
       @onPerpageChange="onPerpageChange"
     />
     <div class="row">
-      <div class="col" v-for="p in filteredImages" :key="p.id">
-        <img
-          :url="p.url"
-          :src="'https://picsum.photos/id/' + p.id + '/367/267'"
-          alt=""
-          @click="onImageClick"
-        />
-
-        <div class="container">
-          <h4>
-            <b>{{ p.author }}</b>
-          </h4>
-          <p>#{{ p.id }}</p>
-        </div>
-      </div>
+      <SingleImage v-for="p in filteredImages" :key="p.id" :p="p" @showModal="showModal" />
     </div>
     <Nav
       :page="page"
@@ -45,10 +26,12 @@
 <script>
 import axios from "axios";
 import Nav from "./Nav.vue";
+import SingleImage from "./SingleImage";
 export default {
   name: "ImageList",
   components: {
-    Nav
+    Nav,
+    SingleImage
   },
   data() {
     return {
@@ -69,20 +52,17 @@ export default {
       const url = `https://picsum.photos/v2/list?page=${this.page}&limit=${this.perPage}`;
       axios
         .get(url)
-        .then((res) => {
+        .then(res => {
           this.lastPage = res.data.length < this.perPage;
           this.images = res.data;
         })
-        .catch((e) => {
+        .catch(e => {
           // eslint-disable-next-line no-console
           console.log(e);
         });
     },
-    onImageClick(event) {
-      const imgElement = event.currentTarget;
-      const url = imgElement.getAttribute("url");
-      const byPassFrameUrl = "https://jsonp.afeld.me/?url=";
-      this.selectedImageUrl = byPassFrameUrl + url;
+    showModal(url) {
+      this.selectedImageUrl = url;
       this.$modal.show("picsum-modal");
     },
     setPages() {
@@ -119,7 +99,7 @@ export default {
   computed: {
     filteredImages() {
       return this.images.filter(
-        (image) =>
+        image =>
           image.author &&
           image.author.toLowerCase().includes(this.filterText.toLowerCase())
       );
