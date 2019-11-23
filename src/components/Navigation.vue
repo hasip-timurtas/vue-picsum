@@ -11,18 +11,19 @@
         <button v-if="!lastPage" @click="increasePage" class="button light__color">Next</button>
       </li>
     </ul>
-    <label for="select-per-page">Images Per Page:</label>
-    <select
-      id="select-per-page"
-      class="button light__color"
-      v-model="childPerPage"
-      @change="onPerPageChange"
-    >
-      <option value="30">30</option>
-      <option value="50">50</option>
-      <option value="75">75</option>
-      <option value="100">100</option>
-    </select>
+    <div class="select__perpage">
+      Images Per Page:
+      <select
+        class="button light__color"
+        v-model="childPerPage"
+        @change="onPerPageChange"
+      >
+        <option value="30">30</option>
+        <option value="50">50</option>
+        <option value="75">75</option>
+        <option value="100">100</option>
+      </select>
+    </div>
   </nav>
 </template>
 
@@ -80,7 +81,9 @@ export default {
 .pagination {
   margin: 50px 0 25px 0;
   height: 50px;
-  width: 500px;
+}
+.select__perpage {
+  float: right;
 }
 .dark__color {
   background-color: #2c3e50;
