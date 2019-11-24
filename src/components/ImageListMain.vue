@@ -7,9 +7,7 @@
       <image-list />
     </main>
     <footer>
-      Vue test project by
-      <strong>M. Hasip Timurtaş</strong> for front-end
-      feveloper jop position at Videoslots Ltd.
+      <strong>MHT</strong>
     </footer>
   </div>
 </template>
