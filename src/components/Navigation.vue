@@ -68,7 +68,7 @@ export default {
   },
   watch: {
     currentPage() {
-      this.childPage = this.childCurrentPage;
+      this.childCurrentPage = this.currentPage;
     },
     perPage() {
       this.childPerPage = this.perPage;
