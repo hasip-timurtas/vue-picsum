@@ -110,15 +110,4 @@ export default {
   display: flex;
   flex-wrap: wrap;
 }
-.col {
-  flex: 1 0 10%;
-  margin: 5px;
-  align-items: center;
-  justify-content: center;
-}
-.col img {
-  width: 367px;
-  height: 267px;
-  cursor: pointer;
-}
 </style>
